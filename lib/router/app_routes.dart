@@ -9,6 +9,7 @@ import 'package:flutter_competition/features/main/prsentation/pages/profile/prse
 import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/pages/delivery_addresses/delivery_adress_page.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/pages/languages/languages_pages.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/pages/profile_page.dart';
+import 'package:flutter_competition/features/main/prsentation/widgets/no_internet/no_internet_screen.dart';
 import 'package:flutter_competition/features/on_boarding/presentation/bloc/on_boarding_bloc.dart';
 import 'package:flutter_competition/features/main/prsentation/cubit/connectivity/connectivity_cubit.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/main_page.dart';
@@ -88,6 +89,10 @@ sealed class AppRoutes {
             create: (context) => AuthChangedBloc(),
             child: const AuthPage(),
           ),
+        );
+      case Routes.noInternet:
+        return MaterialPageRoute(
+          builder: (_) => NoInternetScreen(voidCallback: settings.arguments as VoidCallback),
         );
     }
     return null;
