@@ -142,8 +142,8 @@ class _SignUpPageState extends State<SignUpPage> with SignUpMixin {
                                 passwordController.text) {
                               context.read<AuthBloc>().add(
                                     SignUpEvent(
-                                      email: emailController.text,
-                                      password: passwordController.text,
+                                      email: emailController.text.trim(),
+                                      password: passwordController.text.trim(),
                                       name: nameController.text,
                                     ),
                                   );

@@ -114,8 +114,8 @@ class _SignInPageState extends State<SignInPage> with SignInMixin {
                           onPressed: () {
                             context.read<AuthBloc>().add(
                                   SignInEvent(
-                                    email: emailController.text,
-                                    password: passwordController.text,
+                                    email: emailController.text.trim(),
+                                    password: passwordController.text.trim(),
                                   ),
                                 );
                           },

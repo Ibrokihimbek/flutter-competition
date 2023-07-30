@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_competition/constants/image_constants.dart';
+import 'package:flutter_competition/core/extension/build_context_extension.dart';
 import 'package:flutter_competition/core/theme/app_text_style.dart';
 import 'package:flutter_competition/core/theme/colors/app_colors.dart';
 import 'package:flutter_competition/core/utils/app_utils.dart';
+import 'package:flutter_competition/data/models/on_boarding/on_boarding_model.dart';
 import 'package:flutter_competition/features/on_boarding/presentation/bloc/on_boarding_bloc.dart';
-import 'package:flutter_competition/features/on_boarding/widgets/slider_widget.dart';
 import 'package:flutter_competition/router/app_routes.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -16,31 +16,10 @@ class OnBoardingPage extends StatefulWidget {
 }
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
-  String button = "Next";
   final PageController _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> pages = [
-      const SliderWidget(
-        title: "Choose Products",
-        subTitle:
-            "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-        image: PngImage.firstOnBoarding,
-      ),
-      const SliderWidget(
-        title: "Make Payment",
-        subTitle:
-            "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-        image: PngImage.secondOnBoarding,
-      ),
-      const SliderWidget(
-        title: "Get Your Order",
-        subTitle:
-            "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
-        image: PngImage.thirdOnBoarding,
-      ),
-    ];
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocBuilder<OnBoardingBloc, OnBoardingState>(
@@ -64,7 +43,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 PageView.builder(
                   scrollDirection: Axis.horizontal,
                   controller: _controller,
-                  itemCount: pages.length,
+                  itemCount: OnBoardingModel.pages.length,
                   physics: const BouncingScrollPhysics(),
                   onPageChanged: (value) {
                     context
@@ -73,7 +52,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     currentPage = value;
                   },
                   itemBuilder: (context, int index) {
-                    return pages[index];
+                    return OnBoardingModel.pages[index];
                   },
                 ),
                 Positioned(
@@ -85,7 +64,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List<Widget>.generate(
-                          pages.length,
+                          OnBoardingModel.pages.length,
                           (int index) => AnimatedContainer(
                             curve: Curves.linear,
                             duration: const Duration(milliseconds: 300),
@@ -104,7 +83,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       AppUtils.kBoxHeight48,
                       GestureDetector(
                         onTap: () {
-                          if (currentPage == (pages.length - 1)) {
+                          if (currentPage ==
+                              (OnBoardingModel.pages.length - 1)) {
                             localSource.setFirstTime(value: true);
                             Navigator.pushReplacementNamed(
                                 context, Routes.auth);
@@ -118,20 +98,23 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                           duration: const Duration(milliseconds: 300),
                           height: 60,
                           alignment: Alignment.center,
-                          width:
-                              (currentPage == (pages.length - 1)) ? 200 : 100,
+                          width: (currentPage ==
+                                  (OnBoardingModel.pages.length - 1))
+                              ? 200
+                              : 100,
                           decoration: BoxDecoration(
                             color: ThemeColors.light.primaryColor,
                             borderRadius: BorderRadius.circular(35),
                           ),
-                          child: (currentPage == (pages.length - 1))
+                          child: (currentPage ==
+                                  (OnBoardingModel.pages.length - 1))
                               ? Text(
-                                  button = "Get Started",
+                                  "Get Started",
                                   style: context.textStyle.regularTitle3
                                       .copyWith(color: ThemeColors.light.white),
                                 )
                               : Text(
-                                  button = "Next",
+                                  context.localizations.next,
                                   style: context.textStyle.regularTitle3
                                       .copyWith(color: ThemeColors.light.white),
                                 ),
