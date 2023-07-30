@@ -1,23 +1,17 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/app_bloc/app_bloc.dart';
 import 'package:flutter_competition/core/local_source/local_source.dart';
-import 'package:flutter_competition/core/platform/network_info.dart';
 import 'package:flutter_competition/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:flutter_competition/features/auth/presentation/bloc/auth_page_changed/auth_changed_bloc.dart';
 import 'package:flutter_competition/features/auth/repository/auth_repository.dart';
-import 'package:flutter_competition/router/app_routes.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:path_provider/path_provider.dart';
-
-import 'constants/constants.dart';
 
 final sl = GetIt.instance;
 late Box<dynamic> _box;
@@ -26,33 +20,6 @@ Future<void> init() async {
   //External
   await initHive();
   sl
-    ..registerLazySingleton(
-      () => Dio()
-        ..options = BaseOptions(
-          contentType: 'application/json',
-          sendTimeout: const Duration(seconds: 40),
-          receiveTimeout: const Duration(seconds: 40),
-          connectTimeout: const Duration(seconds: 40),
-          headers: {
-            'X-API-KEY': AppKeys.xApiKey,
-            'Resource-Id': AppKeys.resourceId,
-            'Environment-Id': AppKeys.environmentId,
-            'Authorization': AppKeys.authorization,
-          },
-        )
-        ..interceptors.addAll(
-          [
-            LogInterceptor(
-              requestBody: true,
-              responseBody: true,
-            ),
-            chuck.getDioInterceptor(),
-          ],
-        ),
-    )
-    ..registerLazySingleton(InternetConnectionChecker.new)
-    //Core
-    ..registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()))
     ..registerSingleton<LocalSource>(LocalSource(_box))
     ..registerSingleton<AppBloc>(
       AppBloc(),

@@ -70,7 +70,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     final isEmailRegEx = RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
-    if (!isEmailRegEx.hasMatch(state.email) && (state.email.isNotEmpty)) {
+    if (!isEmailRegEx.hasMatch(state.email) && state.email.isNotEmpty) {
       emit(state.copyWith(showEmailError: true));
     } else {
       emit(state.copyWith(showEmailError: false));
@@ -80,10 +80,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> _showPasswordError(
     Emitter<AuthState> emit,
   ) async {
-    if ((state.password?.length ?? 0) < 6 && (state.password?.isNotEmpty ?? false)) {
-      emit(state.copyWith(showEmailError: true));
+    if (state.password.length < 6 && state.password.isNotEmpty) {
+      emit(state.copyWith(showPasswordError: true));
     } else {
-      emit(state.copyWith(showEmailError: false));
+      emit(state.copyWith(showPasswordError: false));
     }
   }
 

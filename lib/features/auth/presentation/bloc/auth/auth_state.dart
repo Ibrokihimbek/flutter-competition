@@ -29,8 +29,8 @@ class AuthState extends Equatable {
     bool? showPasswordError,
   }) =>
       AuthState(
-        signInStatus: signInStatus ?? this.signInStatus,
-        signUpStatus: signUpStatus ?? this.signUpStatus,
+        signInStatus: signInStatus ?? SignInStatus.initial,
+        signUpStatus: signUpStatus ?? SignUpStatus.initial,
         errorMessage: errorMessage ?? this.errorMessage,
         email: email ?? this.email,
         showEmailError: showEmailError ?? this.showEmailError,

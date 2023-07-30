@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/app.dart';
 import 'package:flutter_competition/core/app_bloc/app_bloc.dart';
 import 'package:flutter_competition/services/notification_service.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'injector_container.dart' as di;
 
@@ -21,7 +20,6 @@ void main() async {
     Bloc.observer = di.LogBlocObserver();
   }
   runApp(const MyApp());
-  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
@@ -36,10 +34,3 @@ class MyApp extends StatelessWidget {
       );
 }
 
-// flutter pub run flutter_launcher_icons:main
-// flutter run -d windows
-// flutter build apk --release
-// flutter build apk --split-per-abi
-// flutter build appbundle --release
-// flutter pub run build_runner watch --delete-conflicting-outputs
-// flutter pub ipa

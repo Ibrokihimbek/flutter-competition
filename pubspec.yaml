@@ -13,32 +13,40 @@ dependencies:
   intl: ^0.18.0
   # di
   get_it: ^7.6.0
-  # generating a string to state sha1
-  crypto: ^3.0.3
-  # html parse
-  flutter_widget_from_html_core: ^0.10.2
   # bloc state manager
   flutter_bloc: ^8.1.3
-  # sms auto fill
-  pinput: ^2.2.31
-  # forms
-  formz: ^0.6.0
   # hive
   hive: ^2.2.3
   # equatable
   equatable: ^2.0.5
-  # rest api
-  dio: ^5.2.1+1
   # internet checker
   connectivity_plus: ^4.0.1
-  internet_connection_checker: ^1.0.0+1
   # svg
   flutter_svg: ^2.0.7
+  # show animation lotti file
   lottie: ^2.5.0
   # keyboard
   keyboard_dismisser: ^3.0.0
   # path
   path_provider: ^2.0.15
+  # local notifications
+  flutter_local_notifications: ^15.0.0
+  # box
+  gap: ^3.0.1
+  # url launchers
+  url_launcher: ^6.1.11
+  # get location, permission and google maps
+  google_maps_flutter: ^2.2.1
+  map_picker: ^0.0.3
+  geocoding: ^2.1.0
+  location: ^5.0.1
+  # snack bar
+  flash: ^3.0.5+1
+  # intl_utils
+  intl_utils: ^2.8.3
+  # animation button tap
+  zoom_tap_animation: ^1.1.0
+
   # firebase
   firebase_core: ^2.14.0
   firebase_analytics: ^10.4.3
@@ -49,34 +57,6 @@ dependencies:
   firebase_auth: ^4.7.2
   firebase_storage: ^11.2.5
   cloud_firestore: ^4.8.4
-  # show toast
-  fluttertoast: ^8.2.2
-  # local notifications
-  flutter_local_notifications: ^15.0.0
-  # box
-  gap: ^3.0.1
-  # native splash
-  flutter_native_splash: ^2.3.1
-  # url launchers
-  url_launcher: ^6.1.11
-  # chuck
-  chuck_interceptor: ^2.0.1
-  # get location, permission and google maps
-  google_maps_flutter: ^2.2.1
-  map_picker: ^0.0.3
-  geocoding: ^2.1.0
-  location: ^5.0.1
-  # for map launch in phone map
-  map_launcher: ^2.5.0+1
-  # uni link
-  uni_links: ^0.5.1
-  # package info
-  package_info_plus: ^4.0.2
-  # snack bar
-  flash: ^3.0.5+1
-  intl_utils: ^2.8.3
-  zoom_tap_animation: ^1.1.0
-  share_plus: ^7.0.2
 
 dev_dependencies:
   flutter_test:
