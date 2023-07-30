@@ -1,11 +1,16 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/app_bloc/app_bloc.dart';
 import 'package:flutter_competition/core/local_source/local_source.dart';
 import 'package:flutter_competition/core/platform/network_info.dart';
+import 'package:flutter_competition/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:flutter_competition/features/auth/presentation/bloc/auth_page_changed/auth_changed_bloc.dart';
+import 'package:flutter_competition/features/auth/repository/auth_repository.dart';
 import 'package:flutter_competition/router/app_routes.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
@@ -58,27 +63,23 @@ Future<void> init() async {
 
 void authFeature() {
   /// Presentation
-  // sl
-  //   ..registerFactory(
-  //     () => LoginBloc(
-  //       sendCodeUseCase: sl(),
-  //     ),
-  //   )
-  //   ..registerFactory(
-  //     () => ConfirmOtpBloc(
-  //       userUpdateUseCase: sl(),
-  //       sendCodeUseCase: sl(),
-  //       confirmCodeUseCase: sl(),
-  //       registerUseCase: sl(),
-  //     ),
-  //   )
-  //   ///Repositories
-  //   ..registerLazySingleton<AuthRepository>(
-  //     () => AuthRepositoryImpl(
-  //       remoteDataSource: sl(),
-  //       networkInfo: sl(),
-  //     ),
-  //   );
+  sl
+    ..registerFactory(
+      () => AuthBloc(
+        authRepository: sl(),
+      ),
+    )
+    ..registerFactory(
+      () => AuthChangedBloc(),
+    )
+
+    ///Repositories
+    ..registerLazySingleton<AuthRepository>(
+      () => AuthRepository(
+        auth:  FirebaseAuth.instance,
+        firebaseFireStore: FirebaseFirestore.instance,
+      ),
+    );
 }
 
 Future<void> initHive() async {

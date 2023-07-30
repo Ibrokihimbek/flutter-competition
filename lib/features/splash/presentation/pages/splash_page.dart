@@ -81,8 +81,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           if (state.isTimerFinished) {
             if (!mounted) return;
             if (localSource.firstTime) {
-              Navigator.pushReplacementNamed(context, Routes.auth);
-              return;
+              if (localSource.isAuth) {
+                Navigator.pushReplacementNamed(context, Routes.main);
+              } else {
+                Navigator.pushReplacementNamed(context, Routes.auth);
+                return;
+              }
             } else {
               Navigator.pushReplacementNamed(context, Routes.onBoarding);
               return;
