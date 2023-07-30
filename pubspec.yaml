@@ -45,6 +45,11 @@ dependencies:
   firebase_crashlytics: ^3.3.3
   firebase_performance: ^0.9.2+3
   firebase_dynamic_links: ^5.3.3
+  firebase_auth: ^4.7.2
+  firebase_storage: ^11.2.5
+  cloud_firestore: ^4.8.4
+  # show toast
+  fluttertoast: ^8.2.2
   # local notifications
   flutter_local_notifications: ^15.0.0
   # box
@@ -56,11 +61,11 @@ dependencies:
   # chuck
   chuck_interceptor: ^2.0.1
   # internet check
-  # get location and permission
-  geolocator_apple: ^2.2.7
-  geolocator_android: ^4.1.9
-  # permission
-  permission_handler: ^10.4.1
+  # get location, permission and google maps
+  google_maps_flutter: ^2.2.1
+  map_picker: ^0.0.3
+  geocoding: ^2.1.0
+  location: ^4.4.0
   # for map launch in phone map
   map_launcher: ^2.5.0+1
   # uni link

@@ -6,3 +6,9 @@ class PngImage {
   static const String secondOnBoarding = 'assets/images/second_onboarding.png';
   static const String thirdOnBoarding = 'assets/images/third_onboarding.png';
 }
+
+class SvgImages{
+  SvgImages._();
+  static const userIcon = 'assets/svg/user.svg';
+  static const lock = 'assets/svg/lock.svg';
+}

@@ -8,5 +8,8 @@ sealed class Routes {
   static const String onBoarding = '/onBoarding';
   static const String auth = '/auth';
   static const String noInternet = '/no_internet';
+  static const String profile = '/no_internet';
+  static const String deliveryAddress = '/delivery_address';
+  static const String language = '/language';
 
 }
