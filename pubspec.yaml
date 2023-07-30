@@ -55,10 +55,7 @@ dependencies:
   url_launcher: ^6.1.11
   # chuck
   chuck_interceptor: ^2.0.1
-  # qrcode
-  mobile_scanner: ^3.3.0
-  # yandex map
-  yandex_mapkit: ^3.3.3
+  # internet check
   # get location and permission
   geolocator_apple: ^2.2.7
   geolocator_android: ^4.1.9
@@ -90,6 +87,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/svg/
 
 flutter_intl:
   enabled: true
