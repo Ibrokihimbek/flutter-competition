@@ -9,13 +9,12 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'injector_container.dart' as di;
 
 void main() async {
-  final WidgetsBinding widgetsBinding = WidgetsFlutterBinding
-      .ensureInitialized();
+  final WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await di.init();
   await notificationInitialize();
-  // await FirebaseDynamicLinkService().initDynamicLink();
 
   /// bloc logger
   if (kDebugMode) {
@@ -29,8 +28,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) =>
-      MultiBlocProvider(
+  Widget build(BuildContext context) => MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => di.sl<AppBloc>()),
         ],
