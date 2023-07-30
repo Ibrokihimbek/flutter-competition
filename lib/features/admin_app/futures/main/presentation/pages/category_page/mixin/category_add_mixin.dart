@@ -3,12 +3,15 @@ part of 'package:flutter_competition/features/admin_app/futures/main/presentatio
 
 mixin CategoryAddMixin on State<CategoryAdminAddPage> {
   late TextEditingController nameController;
+  late TextEditingController descController;
 
   void initController() {
     nameController = TextEditingController();
+    descController = TextEditingController();
   }
 
   void disposeController() {
     nameController.dispose();
+    descController.dispose();
   }
 }
