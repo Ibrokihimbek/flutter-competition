@@ -2,7 +2,9 @@ import 'package:chuck_interceptor/chuck.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/local_source/local_source.dart';
-import 'package:flutter_competition/features/main/prsentation/pages/profile/pages/profile_page.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/pages/delivery_addresses/delivery_adress_page.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/pages/languages/languages_pages.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/pages/profile_page.dart';
 import 'package:flutter_competition/features/on_boarding/presentation/bloc/on_boarding_bloc.dart';
 import 'package:flutter_competition/features/main/prsentation/cubit/connectivity/connectivity_cubit.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/main_page.dart';
@@ -45,6 +47,20 @@ sealed class AppRoutes {
           builder: (_) => BlocProvider(
             create: (context) => OnBoardingBloc(),
             child: const OnBoardingPage(),
+          ),
+        );
+      case Routes.deliveryAddress:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => OnBoardingBloc(),
+            child: const DeliveryAddressPage(),
+          ),
+        );
+      case Routes.language:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => OnBoardingBloc(),
+            child: const LanguagesPage(),
           ),
         );
       case Routes.profile:

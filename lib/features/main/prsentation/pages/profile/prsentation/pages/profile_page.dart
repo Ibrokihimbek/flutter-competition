@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_competition/core/theme/app_text_style.dart';
 import 'package:flutter_competition/core/utils/app_utils.dart';
-import 'package:flutter_competition/features/main/prsentation/pages/profile/widgets/profile_item.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/widgets/profile_item.dart';
+import 'package:flutter_competition/router/app_routes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -45,7 +46,7 @@ class ProfilePage extends StatelessWidget {
               title: "Delivery address",
               subtitle: "Current address",
               onTap: () {
-                // Navigator.pushNamed(context, deliveryAddressRoute);
+                Navigator.pushNamed(context, Routes.deliveryAddress);
               },
               leftIcon: "assets/svg/location.svg",
             ),
@@ -55,7 +56,7 @@ class ProfilePage extends StatelessWidget {
               title: "Language",
               subtitle: "English",
               onTap: () {
-                // Navigator.pushNamed(context, languageRoute);
+                Navigator.pushNamed(context, Routes.language);
               },
               leftIcon: "assets/svg/language.svg",
             ),
