@@ -4,6 +4,7 @@ sealed class Routes {
   Routes._();
 
   static const String main = '/main';
+  static const String mainAdmin = '/main_admin';
   static const String splash = '/splash';
   static const String onBoarding = '/onBoarding';
   static const String auth = '/auth';

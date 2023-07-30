@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/local_source/local_source.dart';
 import 'package:flutter_competition/data/models/lat_long/lat_long_model.dart';
+import 'package:flutter_competition/features/admin_app/futures/main/presentation/main_page.dart';
 import 'package:flutter_competition/features/admin_app/futures/main/presentation/pages/category_page/category_page.dart';
 import 'package:flutter_competition/features/admin_app/futures/main/presentation/pages/category_page/sub_screen/category_add_page.dart';
 import 'package:flutter_competition/features/auth/presentation/pages/auth_page_changed/auth_page_changed.dart';
@@ -50,6 +51,13 @@ sealed class AppRoutes {
           builder: (_) => BlocProvider(
             create: (context) => ConnectivityCubit(),
             child: const MainScreen(),
+          ),
+        );
+      case Routes.mainAdmin:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => ConnectivityCubit(),
+            child: const MainScreenAdmin(),
           ),
         );
       case Routes.onBoarding:

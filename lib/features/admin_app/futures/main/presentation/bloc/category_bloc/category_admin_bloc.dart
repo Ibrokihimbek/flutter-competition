@@ -42,7 +42,9 @@ class CategoryAdminBloc extends Bloc<CategoryAdminEvent, CategoryAdminState> {
   fetchCategory(FetchCategory event, Emitter<CategoryAdminState> emit) async {
     emit(CategoryAdminInProgressByGet());
     MyResponse myResponse = MyResponse(errorMessage: '');
-    myResponse.data = categoryRepository.getCategories();
+    categoryRepository.getCategories().listen((event) {
+      myResponse.data = event;
+    });
     if (myResponse.errorMessage.isNotEmpty) {
       emit(CategoryAdminInSuccessByGet(categories: myResponse.data));
     } else {
