@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/local_source/local_source.dart';
 import 'package:flutter_competition/data/models/lat_long/lat_long_model.dart';
-import 'package:flutter_competition/features/admin_app/futures/main/presentation/pages/category_page/category_page.dart';
 import 'package:flutter_competition/features/auth/presentation/pages/auth_page_changed/auth_page_changed.dart';
 import 'package:flutter_competition/features/main/prsentation/bloc/bloc/location_permission/location_permission_bloc.dart';
 import 'package:flutter_competition/features/main/prsentation/bloc/cubit/connectivity/connectivity_cubit.dart';
@@ -38,6 +37,11 @@ sealed class AppRoutes {
             create: (context) => SplashBloc(),
             child: const SplashPage(),
           ),
+        );
+      case Routes.noInternet:
+        return MaterialPageRoute(
+          builder: (_) => NoInternetScreen(
+              voidCallback: settings.arguments as VoidCallback),
         );
       case Routes.main:
         return MaterialPageRoute(
@@ -89,14 +93,6 @@ sealed class AppRoutes {
             create: (context) => AuthChangedBloc(),
             child: const AuthPage(),
           ),
-        );
-      case Routes.noInternet:
-        return MaterialPageRoute(
-          builder: (_) => NoInternetScreen(voidCallback: settings.arguments as VoidCallback),
-        );
-      case Routes.categoryAdmin:
-        return MaterialPageRoute(
-          builder: (_) => CategoryPageAdmin()
         );
     }
     return null;
