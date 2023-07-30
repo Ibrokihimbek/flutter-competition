@@ -32,10 +32,17 @@ sealed class AppRoutes {
             child: const SplashPage(),
           ),
         );
+      case Routes.main:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => ConnectivityCubit(),
+            child: const MainScreen(),
+          ),
+        );
       case Routes.onBoarding:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => SplashBloc(),
+            create: (context) => OnBoardingBloc(),
             child: const OnBoardingPage(),
           ),
         );
