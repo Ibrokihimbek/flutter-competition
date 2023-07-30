@@ -48,9 +48,9 @@ class DefaultFirebaseOptions {
   }
 
    static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBOk0h-j-8hwgbrvzWTLunmM6Wc6IVGUsA',
-    appId: '1:897256244194:android:53dba055b3761b04696fbb',
-    messagingSenderId: '897256244194',
-    projectId: 'svetafor-app',
+    apiKey: 'AIzaSyD3uglxK9QQVMwZDa4p9kkJ4EWiTbQM5HE',
+    appId: '1:211274088220:android:860eda1a1feedb96a0c4d9',
+    messagingSenderId: '211274088220',
+    projectId: 'flutter-competition-3ce6e',
   );
 }
