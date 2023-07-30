@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/theme/colors/app_colors.dart';
 import 'package:flutter_competition/features/main/prsentation/cubit/connectivity/connectivity_cubit.dart';
 import 'package:flutter_competition/features/main/prsentation/cubit/tab/tab_cubit.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/cart/pages/cart_page.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/home/pages/home_page.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/profile/pages/profile_page.dart';
 import 'package:flutter_competition/features/main/prsentation/widgets/bottom_navigation_bar_item.dart';
 import 'package:flutter_competition/router/app_routes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,10 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     screens = [
       const HomePage(),
-      // OrdersScreen(),
-      // CartScreen(),
-      // SearchScreen(),
-      // ProfileScreen(),
+      const CartPage()
     ];
     super.initState();
   }
@@ -64,22 +63,11 @@ class _MainScreenState extends State<MainScreen> {
                 items: [
                   BottomNavigationBarItemWidget(
                       icon: "home", kmn: index == 0 ? true : false),
-                  // BottomNavigationBarItemWidget(icon: "cart", kmn: index==1?true:false),
+                  BottomNavigationBarItemWidget(icon: "cart", kmn: index==1?true:false),
                   BottomNavigationBarItemWidget(
-                      icon: "profile", kmn: index == 1 ? true : false),
+                      icon: "profile", kmn: index == 2 ? true : false),
                 ],
               ),
-              floatingActionButton: FloatingActionButton(
-                onPressed: () {},
-                shape: const CircleBorder(),
-                child: SvgPicture.asset(
-                  "assets/svg/cart.svg",
-                  width: 18,
-                  height: 18,
-                  color: ThemeColors.light.white,
-                ),
-              ),
-              floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
             );
           },
         ),

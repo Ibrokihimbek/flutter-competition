@@ -70,6 +70,7 @@ dependencies:
   # snack bar
   flash: ^3.0.5+1
   intl_utils: ^2.8.3
+  zoom_tap_animation: ^1.1.0
   share_plus: ^7.0.2
 
 dev_dependencies:
