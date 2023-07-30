@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_competition/constants/image_constants.dart';
 import 'package:flutter_competition/router/app_routes.dart';
 
 import '../bloc/splash_bloc.dart';
@@ -113,7 +114,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     scale: _scaleAnimation.value,
                     child: Opacity(
                       opacity: 1 - _opacityAnimation.value,
-                      child: Container(),
+                      child: Image.asset(
+                        PngImage.logo,
+                        width: 200,
+                        height: 200,
+                      ),
                     ),
                   ),
                 ),
