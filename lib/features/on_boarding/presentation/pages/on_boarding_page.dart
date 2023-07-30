@@ -76,6 +76,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ],
               ),
             ),
+            AppUtils.kBoxHeight10,
             PageView.builder(
               scrollDirection: Axis.horizontal,
               controller: _controller,
@@ -83,7 +84,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               physics: const BouncingScrollPhysics(),
               onPageChanged: _onChanged,
               itemBuilder: (context, int index) {
-                return Container(child: pages[index]);
+                return pages[index];
               },
             ),
             Positioned(

@@ -18,6 +18,7 @@ class SliderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
+        AppUtils.kBoxHeight48,
         SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 350 /812,
