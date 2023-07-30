@@ -11,5 +11,6 @@ sealed class Routes {
   static const String profile = '/no_internet';
   static const String deliveryAddress = '/delivery_address';
   static const String language = '/language';
+  static const String addNewAddress = '/add_new_address';
 
 }

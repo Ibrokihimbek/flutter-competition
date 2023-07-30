@@ -1,28 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_competition/constants/image_constants.dart';
 import 'package:flutter_competition/core/utils/app_utils.dart';
+import 'package:flutter_competition/core/widgets/flash_bar/flash_bar.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/bloc/location_permission/location_permission_bloc.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/pages/delivery_addresses/widgets/dialog_widget.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/widgets/profile_item.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/widgets/second_profile_item.dart';
+import 'package:flutter_competition/router/app_routes.dart';
+import 'package:lottie/lottie.dart';
 
-class DeliveryAddressPage extends StatefulWidget {
+class DeliveryAddressPage extends StatelessWidget {
   const DeliveryAddressPage({Key? key}) : super(key: key);
-
-  @override
-  State<DeliveryAddressPage> createState() => _DeliveryAddressPageState();
-}
-
-class _DeliveryAddressPageState extends State<DeliveryAddressPage> {
-  bool isSelect = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text("Delivery address"),
-      ),
       body: Column(
         children: [
           SingleChildScrollView(
@@ -73,35 +66,42 @@ class _DeliveryAddressPageState extends State<DeliveryAddressPage> {
           BlocListener<LocationPermissionBloc, LocationPermissionState>(
             listener: (context, state) {
               if (state.myPermissionStatus == MyPermissionStatus.loading) {
-                // showDialog(
-                //   barrierDismissible: false,
-                //   builder: (context) => LoadingDialog(
-                //     // widget: Lottie.asset(AppIcons.locationLoading),
-                //   ),
-                //   context: context,
-                // );
+                showDialog(
+                  barrierDismissible: false,
+                  builder: (context) => LoadingDialog(
+                    widget: Lottie.asset(LottieImages.locationLoading),
+                  ),
+                  context: context,
+                );
               }
               if (state.myPermissionStatus == MyPermissionStatus.success) {
                 Navigator.pop(context);
-                // Navigator.pushNamed(
-                //   context,
-                //   addNewAddressRoute,
-                //   arguments: state.latLongModel,
-                // );
+                Navigator.pushNamed(
+                  context,
+                  Routes.addNewAddress,
+                  arguments: state.latLongModel,
+                );
               }
               if (state.myPermissionStatus == MyPermissionStatus.fail) {
-                // MyUtils.showInfoSnackBar(context, "Not found permission and location");
+                flashBarWidget(
+                  title: "Not found permission and location",
+                  context: context,
+                  content: "Please check again",
+                );
               }
             },
-            child:
-          Center(
-            child: Padding(
+            child: Center(
+              child: Padding(
                 padding: AppUtils.kPaddingHor16Bot32,
                 child: ElevatedButton(
                   child: const Text("Add new address"),
-                  onPressed: () {},
-                )),
-          ),
+                  onPressed: () {
+                    BlocProvider.of<LocationPermissionBloc>(context)
+                        .add(const FetchCurrentLocationEvent());
+                  },
+                ),
+              ),
+            ),
           ),
         ],
       ),

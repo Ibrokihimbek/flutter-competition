@@ -7,19 +7,8 @@ import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
 import 'generated/l10n.dart';
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
-
-  @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) => BlocBuilder<AppBloc, AppState>(
@@ -30,7 +19,7 @@ class _AppState extends State<App> {
             themeMode: state.themeMode,
             theme: state.lightTheme,
             darkTheme: state.darkTheme,
-            initialRoute: Routes.splash,
+            initialRoute: Routes.profile,
             onGenerateRoute: AppRoutes.onGenerateRoute,
             locale: Locale.fromSubtags(languageCode: state.appLocale),
             navigatorKey: rootNavigatorKey,
@@ -44,9 +33,4 @@ class _AppState extends State<App> {
           ),
         ),
       );
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 }
