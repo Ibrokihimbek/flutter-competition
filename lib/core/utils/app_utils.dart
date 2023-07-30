@@ -81,6 +81,7 @@ sealed class AppUtils {
 
   static const kPaddingAll16 = EdgeInsets.all(16);
   static const kPaddingLeft16Top16 = EdgeInsets.only(left: 16, top: 16);
+  static const kPaddingLeft16Right24 = EdgeInsets.only(left: 16, right: 24);
   static const kPaddingAllB16 = EdgeInsets.fromLTRB(16, 16, 16, 0);
   static const kPaddingAllT16 = EdgeInsets.fromLTRB(16, 0, 16, 16);
   static const kPaddingAll24 = EdgeInsets.all(24);
@@ -157,8 +158,7 @@ sealed class AppUtils {
     top: 25,
     bottom: 40,
   );
-  static const kPaddingBot16 =
-      EdgeInsets.only(bottom: 16);
+  static const kPaddingBot16 = EdgeInsets.only(bottom: 16);
   static const kPaddingHor16 = EdgeInsets.symmetric(horizontal: 16);
   static const kPaddingHor88 = EdgeInsets.symmetric(horizontal: 88);
   static const kPaddingHor14 = EdgeInsets.symmetric(horizontal: 14);
