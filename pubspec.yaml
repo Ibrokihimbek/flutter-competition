@@ -11,6 +11,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.18.0
+  image_picker: ^0.8.5+3
   # di
   get_it: ^7.6.0
   # bloc state manager
