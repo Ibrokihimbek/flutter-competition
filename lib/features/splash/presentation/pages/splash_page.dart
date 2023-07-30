@@ -77,55 +77,55 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => BlocListener<SplashBloc, SplashState>(
-      listener: (context, state) {
-        if (state.isTimerFinished) {
-          if (!mounted) return;
-          if (localSource.firstTime) {
-            Navigator.pushReplacementNamed(context, Routes.main);
-            return;
-          } else {
-            Navigator.pushReplacementNamed(context, Routes.onBoarding);
-            return;
+        listener: (context, state) {
+          if (state.isTimerFinished) {
+            if (!mounted) return;
+            if (localSource.firstTime) {
+              Navigator.pushReplacementNamed(context, Routes.auth);
+              return;
+            } else {
+              Navigator.pushReplacementNamed(context, Routes.onBoarding);
+              return;
+            }
           }
-        }
-      },
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: const SystemUiOverlayStyle(
-          statusBarBrightness: Brightness.light,
-          statusBarIconBrightness: Brightness.dark,
-        ),
-        child: Scaffold(
-          body: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 84,
-                child: Center(
-                  child: Opacity(
-                    opacity: 1 - _opacityAnimation.value,
-                    child: const CircularProgressIndicator(),
-                  ),
-                ),
-              ),
-              Positioned.fill(
-                child: Center(
-                  child: Transform.scale(
-                    scale: _scaleAnimation.value,
+        },
+        child: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: const SystemUiOverlayStyle(
+            statusBarBrightness: Brightness.light,
+            statusBarIconBrightness: Brightness.dark,
+          ),
+          child: Scaffold(
+            body: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 84,
+                  child: Center(
                     child: Opacity(
                       opacity: 1 - _opacityAnimation.value,
-                      child: Image.asset(
-                        PngImage.logo,
-                        width: 200,
-                        height: 200,
+                      child: const CircularProgressIndicator(),
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                  child: Center(
+                    child: Transform.scale(
+                      scale: _scaleAnimation.value,
+                      child: Opacity(
+                        opacity: 1 - _opacityAnimation.value,
+                        child: Image.asset(
+                          PngImage.logo,
+                          width: 200,
+                          height: 200,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
 }

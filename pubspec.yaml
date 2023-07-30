@@ -61,11 +61,11 @@ dependencies:
   # chuck
   chuck_interceptor: ^2.0.1
   # internet check
-  # get location and permission
-  geolocator_apple: ^2.2.7
-  geolocator_android: ^4.1.9
-  # permission
-  permission_handler: ^10.4.1
+  # get location, permission and google maps
+  google_maps_flutter: ^2.2.1
+  map_picker: ^0.0.3
+  geocoding: ^2.1.0
+  location: ^4.4.0
   # for map launch in phone map
   map_launcher: ^2.5.0+1
   # uni link
