@@ -507,14 +507,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
-  flutter_plugin_android_lifecycle:
-    dependency: transitive
-    description:
-      name: flutter_plugin_android_lifecycle
-      sha256: "950e77c2bbe1692bc0874fc7fb491b96a4dc340457f4ea1641443d0a6c1ea360"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.15"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -797,14 +789,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
-  mobile_scanner:
-    dependency: "direct main"
-    description:
-      name: mobile_scanner
-      sha256: "54dd914e1bb5758b3db7aa02e56d65d80285ba0705e0e5fa5cfbb11e27344c4b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.3.0"
   mockito:
     dependency: "direct dev"
     description:
@@ -1450,14 +1434,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
-  yandex_mapkit:
-    dependency: "direct main"
-    description:
-      name: yandex_mapkit
-      sha256: "9a197369a57a484872546c1d508f1c11e8366c9c2000269032d220dbf210cec5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.3.3"
 sdks:
   dart: ">=3.0.1 <4.0.0"
   flutter: ">=3.10.0"
