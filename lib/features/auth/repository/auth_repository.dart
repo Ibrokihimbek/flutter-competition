@@ -8,13 +8,29 @@ class AuthRepository {
   final FirebaseAuth auth;
   final FirebaseFirestore firebaseFireStore;
 
-  AuthRepository({required  this.auth, required this.firebaseFireStore});
+  AuthRepository({
+    required this.auth,
+    required this.firebaseFireStore,
+  });
 
-  Future<String> signUp({required String email,required String password,required fcmToken, required String name}) async {
-
-    try{
-      UserModel newUser = UserModel(age: 0, userId: '', docId: '', fullName: name, email: email, createdAt: DateTime.now().toString(), imageUrl: '', fcmToken: fcmToken);
-      var signedUser = await firebaseFireStore.collection("users").add(newUser.toJson());
+  Future<String> signUp(
+      {required String email,
+      required String password,
+      required fcmToken,
+      required String name}) async {
+    try {
+      await auth.createUserWithEmailAndPassword(email: email, password: password);
+      UserModel newUser = UserModel(
+          age: 0,
+          userId: '',
+          docId: '',
+          fullName: name,
+          email: email,
+          createdAt: DateTime.now().toString(),
+          imageUrl: '',
+          fcmToken: fcmToken);
+      var signedUser =
+          await firebaseFireStore.collection("users").add(newUser.toJson());
       await firebaseFireStore
           .collection("users")
           .doc(signedUser.id)
@@ -22,21 +38,22 @@ class AuthRepository {
       await localSource.setUserId(signedUser.id);
 
       return "Registered Successfully";
-    }on FirebaseAuthException catch(e){
+    } on FirebaseAuthException catch (e) {
       return e.message.toString();
     }
-
-
   }
 
-  Future<String> signIn(String email,String password) async {
-    try{
+  Future<String> signIn(String email, String password) async {
+    try {
       await auth.signInWithEmailAndPassword(email: email, password: password);
-      var user= await firebaseFireStore.collection("users").where("email",isEqualTo: email).get();
-      await  localSource.setUserId(user.docs[0]["userId"]);
+      var user = await firebaseFireStore
+          .collection("users")
+          .where("email", isEqualTo: email)
+          .get();
+      // await localSource.setUserId(user.docs[0]["userId"]);
       debugPrint("Uid: ${user.docs[0]["userId"]}");
       return "Welcome";
-    }on FirebaseAuthException catch(e){
+    } on FirebaseAuthException catch (e) {
       return e.message.toString();
     }
   }
@@ -44,6 +61,4 @@ class AuthRepository {
   Stream<User?> authState() async* {
     yield* auth.authStateChanges();
   }
-
-
 }

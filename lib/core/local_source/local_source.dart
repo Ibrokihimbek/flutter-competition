@@ -39,7 +39,7 @@ class LocalSource {
     box.delete(AppKeys.userId);
   }
 
-  String get phoneUserId => box.get(AppKeys.userId, defaultValue: '');
+  String get userId => box.get(AppKeys.userId, defaultValue: '');
 
 
   Future<void> setFirstTime({bool value = false}) async {
@@ -48,5 +48,14 @@ class LocalSource {
 
   bool get firstTime => box.get(AppKeys.firstTime, defaultValue: false);
 
-  
+  Future<void> setIsAuth(bool isAuth) async {
+    await box.put(AppKeys.isAuth, isAuth);
+  }
+
+  void deleteIsAuth() {
+    box.delete(AppKeys.isAuth);
+  }
+
+  bool get isAuth => box.get(AppKeys.isAuth, defaultValue: false);
+
 }
