@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/app_bloc/app_bloc.dart';
 import 'package:flutter_competition/core/local_source/local_source.dart';
+import 'package:flutter_competition/features/admin_app/futures/main/presentation/bloc/category_bloc/category_admin_bloc.dart';
+import 'package:flutter_competition/features/admin_app/futures/main/repository/categories_repository.dart';
 import 'package:flutter_competition/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:flutter_competition/features/auth/presentation/bloc/auth_page_changed/auth_changed_bloc.dart';
 import 'package:flutter_competition/features/auth/repository/auth_repository.dart';
@@ -43,8 +45,25 @@ void authFeature() {
     ///Repositories
     ..registerLazySingleton<AuthRepository>(
       () => AuthRepository(
-        auth:  FirebaseAuth.instance,
+        auth: FirebaseAuth.instance,
         firebaseFireStore: FirebaseFirestore.instance,
+      ),
+    );
+}
+
+void adminCategoryFeature() {
+  /// Presentation
+  sl
+    ..registerFactory(
+      () => CategoryAdminBloc(
+        categoryRepository: sl(),
+      ),
+    )
+
+    ///Repositories
+    ..registerLazySingleton<CategoryRepository>(
+      () => CategoryRepository(
+        firebaseFirestore: FirebaseFirestore.instance,
       ),
     );
 }
