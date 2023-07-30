@@ -85,7 +85,9 @@ sealed class AppUtils {
   static const kPaddingAllT16 = EdgeInsets.fromLTRB(16, 0, 16, 16);
   static const kPaddingAll24 = EdgeInsets.all(24);
   static const kPaddingHorizontal16 = EdgeInsets.symmetric(horizontal: 16);
+  static const kPaddingHorizontal5 = EdgeInsets.symmetric(horizontal: 5);
   static const kPaddingHorizontal24 = EdgeInsets.symmetric(horizontal: 24);
+  static const kPaddingHorizontal50 = EdgeInsets.symmetric(horizontal: 50);
   static const kPaddingHorizontal56 = EdgeInsets.only(right: 56);
   static const kPaddingVertical16 = EdgeInsets.symmetric(vertical: 16);
   static const kPaddingVertical12 = EdgeInsets.symmetric(vertical: 12);
