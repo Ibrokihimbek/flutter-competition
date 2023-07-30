@@ -8,6 +8,8 @@ import 'package:flutter_competition/features/admin_app/futures/main/presentation
 import 'package:flutter_competition/features/auth/presentation/pages/auth_page_changed/auth_page_changed.dart';
 import 'package:flutter_competition/features/main/prsentation/bloc/bloc/location_permission/location_permission_bloc.dart';
 import 'package:flutter_competition/features/main/prsentation/bloc/cubit/connectivity/connectivity_cubit.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/home/product_detail/product_detail_page.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/page_arguments/product_pege_arguments.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/add_new_address/add_new_address_screen.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/delivery_addresses/delivery_adress_page.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/profile/languages/languages_pages.dart';
@@ -104,16 +106,27 @@ sealed class AppRoutes {
             child: const AuthPage(),
           ),
         );
-      case Routes.noInternet:
-        return MaterialPageRoute(
-          builder: (_) => NoInternetScreen(voidCallback: settings.arguments as VoidCallback),
-        );
       case Routes.categoryAdmin:
-        return MaterialPageRoute(
-          builder: (_) => CategoryPageAdmin()
-        );
+        return MaterialPageRoute(builder: (_) => const CategoryPageAdmin());
       case Routes.categoryAdminAdd:
-        return MaterialPageRoute(builder: (_) => CategoryAdminAddPage());
+        return MaterialPageRoute(
+          builder: (_) => const CategoryAdminAddPage(),
+        );
+      case Routes.productDetail:
+        return MaterialPageRoute(
+          builder: (_) => ProductDetailPage(
+            productInfo: ProductPageArguments(
+              productName:
+                  (settings.arguments as ProductPageArguments).productName,
+              productDescription: (settings.arguments as ProductPageArguments)
+                  .productDescription,
+              productPrice:
+                  (settings.arguments as ProductPageArguments).productPrice,
+              productImageUrl:
+                  (settings.arguments as ProductPageArguments).productImageUrl,
+            ),
+          ),
+        );
     }
     return null;
   }

@@ -47,23 +47,24 @@ class ProductsItemsWidget extends StatelessWidget {
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(8)),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 6, top: 4),
+            Padding(
+              padding: const EdgeInsets.only(left: 6, top: 4),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Women Printed Kurta",
+                    productName,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Text(
-                    """Neque porro quisquam est qui dolorem ipsum quia""",
+                    productDescription,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  // ignore: prefer_const_constructors
                   SizedBox(height: 12),
                   Text(
-                    """450 \$""",
+                    productPrice,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
