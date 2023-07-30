@@ -55,7 +55,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   child: TextButton(
                     onPressed: () {
                       localSource.setFirstTime(value: true);
-                      // Navigator.pushReplacementNamed(context, tabBox);
+                      Navigator.pushReplacementNamed(context, Routes.auth);
                     },
                     child: Text("Skip", style: context.textStyle.boldHeadline),
                   ),
@@ -106,7 +106,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         onTap: () {
                           if (currentPage == (pages.length - 1)) {
                             localSource.setFirstTime(value: true);
-                            // Navigator.pushReplacementNamed(context, tabBox);
+                            Navigator.pushReplacementNamed(
+                                context, Routes.auth);
                           } else {
                             _controller.nextPage(
                                 duration: const Duration(milliseconds: 800),
