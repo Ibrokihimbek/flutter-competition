@@ -6,6 +6,7 @@ import 'package:flutter_competition/features/main/prsentation/cubit/connectivity
 import 'package:flutter_competition/features/main/prsentation/cubit/tab/tab_cubit.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/cart/pages/cart_page.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/home/pages/home_page.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/profile/prsentation/pages/profile_page.dart';
 import 'package:flutter_competition/features/main/prsentation/widgets/bottom_navigation_bar_item.dart';
 import 'package:flutter_competition/router/app_routes.dart';
 
@@ -23,7 +24,8 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     screens = [
       const HomePage(),
-      const CartPage()
+      const CartPage(),
+      const ProfilePage()
     ];
     super.initState();
   }

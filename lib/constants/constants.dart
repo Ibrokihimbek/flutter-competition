@@ -40,7 +40,7 @@ class Validations {
 class AppKeys {
   AppKeys._();
   static const locale = 'locale';
-  static const filterData = 'filter_data';
+  static const isAuth = 'is_auth';
   static const firstTime = 'firstTime';
   static const phoneNumber = 'phone_number';
   static const userId = 'setUserId';

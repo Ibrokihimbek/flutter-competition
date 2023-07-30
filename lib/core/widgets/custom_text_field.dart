@@ -122,6 +122,7 @@ class CustomTextField extends StatelessWidget {
           inputFormatters:
               textInputFormatter != null ? textInputFormatter! : null,
           decoration: InputDecoration(
+            constraints: const BoxConstraints(),
             fillColor: fillColor,
             labelText: labelInTextField ? labelText : null,
             labelStyle: labelTextStyle,

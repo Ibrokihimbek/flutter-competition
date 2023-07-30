@@ -13,6 +13,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Profile"),
+        elevation: 0,
         actions: [
           IconButton(
             onPressed: () {},
