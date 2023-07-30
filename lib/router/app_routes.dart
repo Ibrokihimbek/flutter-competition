@@ -2,6 +2,7 @@ import 'package:chuck_interceptor/chuck.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/local_source/local_source.dart';
+import 'package:flutter_competition/features/on_boarding/presentation/bloc/on_boarding_bloc.dart';
 import 'package:flutter_competition/features/main/prsentation/cubit/connectivity/connectivity_cubit.dart';
 import 'package:flutter_competition/features/main/prsentation/cubit/tab/tab_cubit.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/main_page.dart';
@@ -30,14 +31,6 @@ sealed class AppRoutes {
             create: (context) => SplashBloc(),
             child: const SplashPage(),
           ),
-        );
-      case Routes.main:
-        return MaterialPageRoute(
-          builder: (_) =>  BlocProvider(create: (context)=>ConnectivityCubit(),child: const MainScreen(),),
-        );
-      case Routes.noInternet:
-        return MaterialPageRoute(
-          builder: (_) =>  NoInternetScreen(voidCallback: settings.arguments as VoidCallback),
         );
       case Routes.onBoarding:
         return MaterialPageRoute(
