@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "211274088220",
+    "project_id": "flutter-competition-3ce6e",
+    "storage_bucket": "flutter-competition-3ce6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211274088220:android:860eda1a1feedb96a0c4d9",
+        "android_client_info": {
+          "package_name": "com.example.flutter_competition"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211274088220-mkeutg49sld4rjrogk57j57r92sfqfhu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3uglxK9QQVMwZDa4p9kkJ4EWiTbQM5HE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211274088220-mkeutg49sld4rjrogk57j57r92sfqfhu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
