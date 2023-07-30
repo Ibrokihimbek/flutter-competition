@@ -60,12 +60,11 @@ dependencies:
   url_launcher: ^6.1.11
   # chuck
   chuck_interceptor: ^2.0.1
-  # internet check
   # get location, permission and google maps
   google_maps_flutter: ^2.2.1
   map_picker: ^0.0.3
   geocoding: ^2.1.0
-  location: ^4.4.0
+  location: ^5.0.1
   # for map launch in phone map
   map_launcher: ^2.5.0+1
   # uni link

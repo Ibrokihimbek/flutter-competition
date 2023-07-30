@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_competition/core/theme/colors/app_colors.dart';
 import 'package:flutter_competition/core/utils/app_utils.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class CartPage extends StatefulWidget {
