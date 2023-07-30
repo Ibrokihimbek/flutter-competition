@@ -6,10 +6,8 @@ import 'package:flutter_competition/features/main/prsentation/cubit/connectivity
 import 'package:flutter_competition/features/main/prsentation/cubit/tab/tab_cubit.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/cart/pages/cart_page.dart';
 import 'package:flutter_competition/features/main/prsentation/pages/home/pages/home_page.dart';
-import 'package:flutter_competition/features/main/prsentation/pages/profile/pages/profile_page.dart';
 import 'package:flutter_competition/features/main/prsentation/widgets/bottom_navigation_bar_item.dart';
 import 'package:flutter_competition/router/app_routes.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
