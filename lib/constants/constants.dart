@@ -1,4 +1,4 @@
-import 'package:yandex_mapkit/yandex_mapkit.dart';
+// import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 class Constants {
   Constants._();
@@ -13,10 +13,10 @@ class Constants {
   static const String baseUrl = '';
   static const String authUrl = 'https://api.auth.u-code.io';
   static const String adminUrl = 'https://api.admin.u-code.io';
-  static const Point point = Point(
-    latitude: 41.2995,
-    longitude: 69.2401,
-  );
+  // static const Point point = Point(
+  //   latitude: 41.2995,
+  //   longitude: 69.2401,
+  // );
 }
 
 class Validations {
