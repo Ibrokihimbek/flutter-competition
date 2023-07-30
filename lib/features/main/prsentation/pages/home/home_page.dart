@@ -3,8 +3,10 @@ import 'package:flutter_competition/constants/image_constants.dart';
 import 'package:flutter_competition/core/theme/colors/app_colors.dart';
 import 'package:flutter_competition/core/utils/app_utils.dart';
 import 'package:flutter_competition/core/widgets/custom_text_field.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/page_arguments/product_pege_arguments.dart';
 import 'package:flutter_competition/features/main/prsentation/widgets/category_item.dart';
 import 'package:flutter_competition/features/main/prsentation/widgets/product_items.dart';
+import 'package:flutter_competition/router/app_routes.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 part 'package:flutter_competition/features/main/prsentation/pages/mixin/home_mixin.dart';
@@ -88,11 +90,26 @@ class _HomePageState extends State<HomePage> with HomeMixin {
               itemCount: 6,
               itemBuilder: (BuildContext context, int index) {
                 return ProductsItemsWidget(
-                  onTap: () {},
-                  productImageUrl: "https://i.pinimg.com/236x/dd/b2/b6/ddb2b636719b747c52d62c7ee8574fd1.jpg",
-                  productName: '',
-                  productDescription: '',
-                  productPrice: '',
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.productDetail,
+                      arguments: ProductPageArguments(
+                        productName: 'NIke Sneakers',
+                        productDescription:
+                            'Perhaps the most iconic sneaker of all-time, this original "Chicago"? colorway is the cornerstone to any sneaker collection. Made famous in 1985 by Michael Jordan, the shoe has stood the test of time, becoming the most famous colorway of the Air Jordan 1. This 2015 release saw',
+                        productPrice: '450',
+                        productImageUrl:
+                            'https://i.pinimg.com/236x/dd/b2/b6/ddb2b636719b747c52d62c7ee8574fd1.jpg',
+                      ),
+                    );
+                  },
+                  productImageUrl:
+                      "https://i.pinimg.com/236x/dd/b2/b6/ddb2b636719b747c52d62c7ee8574fd1.jpg",
+                  productName: 'Women Printed Kurta',
+                  productDescription:
+                      'Neque porro quisquam est qui dolorem ipsum quia',
+                  productPrice: '450\$',
                 );
               },
             ),

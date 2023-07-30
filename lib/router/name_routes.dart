@@ -14,5 +14,6 @@ sealed class Routes {
   static const String addNewAddress = '/add_new_address';
   static const String categoryAdmin = '/category_admin';
   static const String categoryAdminAdd = '/category_admin_add';
+  static const String productDetail = '/product_detail';
 
 }
