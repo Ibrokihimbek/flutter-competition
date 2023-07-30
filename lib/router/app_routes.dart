@@ -2,6 +2,8 @@ import 'package:chuck_interceptor/chuck.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_competition/core/local_source/local_source.dart';
+import 'package:flutter_competition/features/auth/presentation/bloc/auth_changed_bloc.dart';
+import 'package:flutter_competition/features/auth/presentation/pages/auth_changes_changed/auth_page_changed.dart';
 import 'package:flutter_competition/features/on_boarding/presentation/pages/on_boarding_page.dart';
 import 'package:flutter_competition/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:flutter_competition/features/splash/presentation/pages/splash_page.dart';
@@ -32,6 +34,12 @@ sealed class AppRoutes {
           builder: (_) => BlocProvider(
             create: (context) => SplashBloc(),
             child: const OnBoardingPage(),
+          ),
+        );case Routes.auth:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => AuthChangedBloc(),
+            child: const AuthPage(),
           ),
         );
     }
