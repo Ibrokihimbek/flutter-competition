@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_competition/features/auth/presentation/bloc/auth_changed_bloc.dart';
+import 'package:flutter_competition/features/auth/presentation/bloc/auth_page_changed/auth_changed_bloc.dart';
 import 'package:flutter_competition/features/auth/presentation/pages/sign_in/sign_in.dart';
 import 'package:flutter_competition/features/auth/presentation/pages/sign_up/sign_up.dart';
 

@@ -30,7 +30,7 @@ class _AppState extends State<App> {
             themeMode: state.themeMode,
             theme: state.lightTheme,
             darkTheme: state.darkTheme,
-            initialRoute: Routes.splash,
+            initialRoute: Routes.auth,
             onGenerateRoute: AppRoutes.onGenerateRoute,
             locale: Locale.fromSubtags(languageCode: state.appLocale),
             navigatorKey: rootNavigatorKey,

@@ -31,6 +31,16 @@ class LocalSource {
 
   String get phoneNumber => box.get(AppKeys.phoneNumber, defaultValue: '');
 
+  Future<void> setUserId(String userId) async {
+    await box.put(AppKeys.userId, userId);
+  }
+
+  void deleteUserId() {
+    box.delete(AppKeys.userId);
+  }
+
+  String get phoneUserId => box.get(AppKeys.userId, defaultValue: '');
+
 
   Future<void> setFirstTime({bool value = false}) async {
     await box.put(AppKeys.firstTime, value);
