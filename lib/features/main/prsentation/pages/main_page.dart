@@ -1,9 +1,13 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_competition/core/theme/colors/app_colors.dart';
 import 'package:flutter_competition/features/main/prsentation/cubit/connectivity/connectivity_cubit.dart';
 import 'package:flutter_competition/features/main/prsentation/cubit/tab/tab_cubit.dart';
+import 'package:flutter_competition/features/main/prsentation/pages/home/pages/home_page.dart';
 import 'package:flutter_competition/features/main/prsentation/widgets/bottom_navigation_bar_item.dart';
+import 'package:flutter_competition/router/app_routes.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -18,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     screens = [
-      // HomeScreen(),
+      const HomePage(),
       // OrdersScreen(),
       // CartScreen(),
       // SearchScreen(),
@@ -36,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
     return BlocListener<ConnectivityCubit, ConnectivityState>(
       listener: (context, state) {
         if (state.connectivityResult == ConnectivityResult.none) {
-          // Navigator.pushNamed(context, noInternetRoute, arguments: _init);
+          Navigator.pushNamed(context, Routes.noInternet, arguments: _init);
         }
       },
       child: BlocProvider(
@@ -48,22 +52,34 @@ class _MainScreenState extends State<MainScreen> {
               body: IndexedStack(index: index, children: screens),
               bottomNavigationBar: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
+                backgroundColor: ThemeColors.light.white,
                 currentIndex: index,
-                // selectedItemColor: MyColors.greyscale900,
-                // unselectedItemColor: MyColors.greyscale400,
+                selectedItemColor: Colors.red,
+                unselectedItemColor: Colors.black,
                 // selectedFontSize: 16.sp,
                 // unselectedFontSize: 16.sp,
                 onTap: (value) {
                   context.read<TabCubit>().changeTabState(value);
                 },
                 items: [
-                  BottomNavigationBarItemWidget(icon: "home"),
-                  BottomNavigationBarItemWidget(icon: "orders"),
-                  BottomNavigationBarItemWidget(icon: "cart"),
-                  BottomNavigationBarItemWidget(icon: "search"),
-                  BottomNavigationBarItemWidget(icon: "profile"),
+                  BottomNavigationBarItemWidget(
+                      icon: "home", kmn: index == 0 ? true : false),
+                  // BottomNavigationBarItemWidget(icon: "cart", kmn: index==1?true:false),
+                  BottomNavigationBarItemWidget(
+                      icon: "profile", kmn: index == 1 ? true : false),
                 ],
               ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {},
+                shape: const CircleBorder(),
+                child: SvgPicture.asset(
+                  "assets/svg/cart.svg",
+                  width: 18,
+                  height: 18,
+                  color: ThemeColors.light.white,
+                ),
+              ),
+              floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
             );
           },
         ),

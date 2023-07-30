@@ -6,5 +6,6 @@ sealed class Routes {
   static const String main = '/main';
   static const String splash = '/splash';
   static const String onBoarding = '/onBoarding';
+  static const String noInternet = '/no_internet';
 
 }
