@@ -19,7 +19,7 @@ class App extends StatelessWidget {
             themeMode: state.themeMode,
             theme: state.lightTheme,
             darkTheme: state.darkTheme,
-            initialRoute: Routes.mainAdmin,
+            initialRoute: Routes.splash,
             onGenerateRoute: AppRoutes.onGenerateRoute,
             locale: Locale.fromSubtags(languageCode: state.appLocale),
             navigatorKey: rootNavigatorKey,
