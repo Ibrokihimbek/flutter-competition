@@ -15,6 +15,7 @@ class SplashPage extends StatefulWidget {
   State<SplashPage> createState() => _SplashPageState();
 }
 
+
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late final AnimationController _scaleController;
   late final AnimationController _opacityController;
